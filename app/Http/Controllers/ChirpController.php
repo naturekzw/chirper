@@ -17,7 +17,7 @@ class ChirpController extends Controller
     {
         return view('chirps.index', [
 
-            'chirps' => Chirp::with('user')->latest()->get(),
+            'chirpContents' => Chirp::with('user')->latest()->get(),
 
         ]);
     }
@@ -52,11 +52,11 @@ class ChirpController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Chirp $chirp): View
+    public function edit(Chirp $chirpe): View
     {
-        $this->authorize('update', $chirp);
+        $this->authorize('update', $chirpe);
         return view('chirps.edit', [
-            'chirp' => $chirp,
+            'onechirp' => $chirpe,
         ]);
     }
 
